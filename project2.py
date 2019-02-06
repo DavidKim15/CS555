@@ -79,7 +79,10 @@ for line in gedcomFile:
 
 print("Individuals:")
 for id in sorted(individuals.iterkeys()):
-    print "%s: %s" % (id, individuals[id]['NAME'])
-print("Families:")
+    print "IndivID: %s Name: %s" % (id, individuals[id]['NAME'])
+
+print("\nFamilies:")
 for id in sorted(families.iterkeys()):
-    print "%s: %s %s" % (id, families[id]['HUSB'], families[id]['WIFE'])
+	hubbyname = individuals[families[id]['HUSB']]['NAME']
+	wifeyname = individuals[families[id]['WIFE']]['NAME']
+	print "FamilyID: %s Husband: %s Wife: %s" % (id, hubbyname, wifeyname)
