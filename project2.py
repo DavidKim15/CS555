@@ -1,6 +1,9 @@
 # Jordan Tantuico
 # I pledge my honor that I have abided by the Stevens Honor System
 
+# Individuals (ids, name) in order of id
+# Families (ids, hubby, wifey) in order of id
+
 # Stores the file
 gedcomFile = open("proj02test.ged")
 
@@ -8,8 +11,17 @@ gedcomFile = open("proj02test.ged")
 tags = {'0': ['HEAD', 'TRLR', 'NOTE'],
 		'1': ['NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'MARR', 'HUSB', 'WIFE', 'CHIL', 'DIV'],
 		'2': ['DATE']}
-
 specialTags = {'0': ['INDI', 'FAM']}
+
+# Dictionary of Individuals
+individuals = {}
+# Dictionary of Families
+families = {}
+
+indi_or_fam = 'indi'
+birt_or_deat = 'BIRT'
+marr_or_div = 'MARR'
+current_id = ''
 # Reads each line in the file
 for line in gedcomFile:
 	line = line.rstrip("\r\n")
@@ -31,29 +43,43 @@ for line in gedcomFile:
 	elif components[1] in tags[components[0]]:
 		# valid, general case
 		valid = "Y"
+		if level == '0':
+			pass
+		elif tag == 'DATE':
+			if indi_or_fam == 'indi':
+				individuals[current_id][birt_or_deat] = args
+			else:
+				families[current_id][marr_or_div] = args
+		elif indi_or_fam == 'indi':
+			if tag == 'BIRT' or tag == 'DEAT':
+				birt_or_deat = tag
+			else:
+				individuals[current_id][tag] = args
+		elif indi_or_fam == 'fam':
+			if tag == 'MARR' or tag == 'DIV':
+				marr_or_div = tag
+			else:
+				families[current_id][tag] = args
 	elif components[0] in specialTags and components[2] in specialTags[components[0]]:
 		# valid, tag is third component
 		valid = "Y"
 		tag = components[2]
 		args = components[1]
+		if tag == 'INDI' :
+			individuals[args] = {}
+			indi_or_fam = 'indi'
+		else :
+			families[args] = {}
+			indi_or_fam = 'fam'
+		current_id = args
 	else:
 		# invalid, not a tag
 		pass
-
 	print("<-- " + level + "|" + tag + "|" + valid + "|" + args)
 
-
-
-
-
-	# if components[0] in tags and components[1] in tags[components[0]] or (len(components) == 3 and components[2] in tags[components[0]]):
-	# 	valid = "Y"
-	# if len(components) == 3:
-	# 	# Special case
-	# 	if components[0] in tags and components[2] in tags[components[0]]:
-	# 		print("<-- " + components[0] + "|" + components[2] + "|" + valid + "|" + components[1])
-	# 	# General case
-	# 	else:
-	# 		print("<-- " + components[0] + "|" + components[1] + "|" + valid + "|" + components[2])
-	# else:
-	# 	print("<-- " + components[0] + "|" + components[1] + "|" + valid + "|")
+print("Individuals:")
+for id in sorted(individuals.iterkeys()):
+    print "%s: %s" % (id, individuals[id]['NAME'])
+print("Families:")
+for id in sorted(families.iterkeys()):
+    print "%s: %s %s" % (id, families[id]['HUSB'], families[id]['WIFE'])
