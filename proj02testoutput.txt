@@ -1,0 +1,84 @@
+Davids-MacBook-Pro:cs555 davidkim$ python project2.py
+--> 0 NOTE CS555
+<-- 0|NOTE|Y|CS555
+--> 0 NOTE the lines until the next note are all correct
+<-- 0|NOTE|Y|the lines until the next note are all correct
+--> 0 HEAD
+<-- 0|HEAD|Y|
+--> 0 jc INDI
+<-- 0|INDI|Y|jc
+--> 1 NAME Jimmy /Connors/
+<-- 1|NAME|Y|Jimmy /Connors/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1950
+<-- 2|DATE|Y|1 JAN 1950
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 31 DEC 2099
+<-- 2|DATE|Y|31 DEC 2099
+--> 1 FAMC f3
+<-- 1|FAMC|Y|f3
+--> 1 FAMS f2
+<-- 1|FAMS|Y|f2
+--> 0 ce INDI
+<-- 0|INDI|Y|ce
+--> 1 NAME Jaimie /Connors/
+<-- 1|NAME|Y|Jaimie /Connors/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 15 JAN 1949
+<-- 2|DATE|Y|15 JAN 1949
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 31 DEC 2099
+<-- 2|DATE|Y|31 DEC 2099
+--> 1 FAMC f1
+<-- 1|FAMC|Y|f1
+--> 1 FAMS f2
+<-- 1|FAMS|Y|f2
+--> 0 aa INDI
+<-- 0|INDI|Y|aa
+--> 1 NAME Aaron /Connors/
+<-- 1|NAME|Y|Aaron /Connors/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 FEB 2000
+<-- 2|DATE|Y|1 FEB 2000
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 31 DEC 2099
+<-- 2|DATE|Y|31 DEC 2099
+--> 1 FAMC f2
+<-- 1|FAMC|Y|f2
+--> 0 f2 FAM
+<-- 0|FAM|Y|f2
+--> 1 HUSB jc
+<-- 1|HUSB|Y|jc
+--> 1 WIFE ce
+<-- 1|WIFE|Y|ce
+--> 1 CHIL aa
+<-- 1|CHIL|Y|aa
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 1960
+<-- 2|DATE|Y|1 JUN 1960
+--> 1 DIV
+<-- 1|DIV|Y|
+--> 2 DATE 1 JUN 1961
+<-- 2|DATE|Y|1 JUN 1961
+--> 0 TRLR
+<-- 0|TRLR|Y|
+Individuals:
+IndivID: aa Name: Aaron /Connors/
+IndivID: ce Name: Jaimie /Connors/
+IndivID: jc Name: Jimmy /Connors/
+
+Families:
+FamilyID: f2 Husband: Jimmy /Connors/ Wife: Jaimie /Connors/
