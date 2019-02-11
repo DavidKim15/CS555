@@ -17,6 +17,8 @@ specialTags = {'0': ['INDI', 'FAM']}
 individuals = {}
 # Dictionary of Families
 families = {}
+# List of Deceased Individuals
+deceased = []
 
 indi_or_fam = 'indi'
 birt_or_deat = 'BIRT'
@@ -59,7 +61,13 @@ for line in gedcomFile:
 			if tag == 'MARR' or tag == 'DIV':
 				marr_or_div = tag
 			else:
-				families[current_id][tag] = args
+				if tag == 'WIFE' or tag == 'CHIL':
+					if individuals[args]['NAME'].split(" ", 2)[1] != individuals[families[current_id]['HUSB']]['NAME'].split(" ",2)[1]:
+						valid = "N"
+					else:
+						families[current_id][tag] = args
+				else:
+					families[current_id][tag] = args
 	elif components[0] in specialTags and components[2] in specialTags[components[0]]:
 		# valid, tag is third component
 		valid = "Y"
@@ -78,11 +86,24 @@ for line in gedcomFile:
 	print("<-- " + level + "|" + tag + "|" + valid + "|" + args)
 
 print("Individuals:")
-for id in sorted(individuals.iterkeys()):
-    print("IndivID: " + id + " Name: " + individuals[id]['NAME'])
+for id in sorted(individuals.keys()):
+	if 'DEAT' in individuals[id]:
+		deceased.append(id)
+	print("IndivID: " + id + " Name: " + individuals[id]['NAME'])
 
 print("\nFamilies:")
-for id in sorted(families.iterkeys()):
-	hubbyname = individuals[families[id]['HUSB']]['NAME']
-	wifeyname = individuals[families[id]['WIFE']]['NAME']
+for id in sorted(families.keys()):
+	hubbyname = 'none'
+	wifeyname = 'none'
+	if 'HUSB' in families[id]:
+		hubbyname = individuals[families[id]['HUSB']]['NAME']
+	if 'WIFE' in families[id]:
+		wifeyname = individuals[families[id]['WIFE']]['NAME']
 	print("FamilyID: " + id + " Husband: " + hubbyname + " Wife: " + wifeyname)
+
+
+print("\nDeceased:")
+for element in deceased:
+	name = individuals[element]['NAME']
+	print("Name: " + name + " ID: " + element)
+
