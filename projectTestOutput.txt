@@ -1,4 +1,3 @@
-Davids-MacBook-Pro:cs555 davidkim$ python project2.py
 --> 0 NOTE CS555
 <-- 0|NOTE|Y|CS555
 --> 0 NOTE the lines until the next note are all correct

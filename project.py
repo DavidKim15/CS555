@@ -1,11 +1,11 @@
-# Jordan Tantuico
+# Jordan Tantuico, David Kim, Philip Cho
 # I pledge my honor that I have abided by the Stevens Honor System
 
 # Individuals (ids, name) in order of id
 # Families (ids, hubby, wifey) in order of id
 
 # Stores the file
-gedcomFile = open("proj02test.ged")
+gedcomFile = open("projectTest.ged")
 
 # Stores all the valid tags at their corresponding levels
 tags = {'0': ['HEAD', 'TRLR', 'NOTE'],
@@ -79,10 +79,10 @@ for line in gedcomFile:
 
 print("Individuals:")
 for id in sorted(individuals.iterkeys()):
-    print "IndivID: %s Name: %s" % (id, individuals[id]['NAME'])
+    print("IndivID: " + id + " Name: " + individuals[id]['NAME'])
 
 print("\nFamilies:")
 for id in sorted(families.iterkeys()):
 	hubbyname = individuals[families[id]['HUSB']]['NAME']
 	wifeyname = individuals[families[id]['WIFE']]['NAME']
-	print "FamilyID: %s Husband: %s Wife: %s" % (id, hubbyname, wifeyname)
+	print("FamilyID: " + id + " Husband: " + hubbyname + " Wife: " + wifeyname)
