@@ -4,6 +4,8 @@
 # Individuals (ids, name) in order of id
 # Families (ids, hubby, wifey) in order of id
 
+import unittest
+
 # Stores the file
 gedcomFile = open("projectTest.ged")
 
