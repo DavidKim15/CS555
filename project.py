@@ -60,6 +60,11 @@ for line in gedcomFile:
 		elif indi_or_fam == 'fam':
 			if tag == 'MARR' or tag == 'DIV':
 				marr_or_div = tag
+			if tag == 'CHIL':
+				if 'CHIL' in families[current_id]:
+					families[current_id][tag].append(args)
+				else:
+					families[current_id][tag] = [args]
 			else:
 				families[current_id][tag] = args
 	elif components[0] in specialTags and components[2] in specialTags[components[0]]:
@@ -80,11 +85,11 @@ for line in gedcomFile:
 	print("<-- " + level + "|" + tag + "|" + valid + "|" + args)
 
 print("Individuals:")
-for id in sorted(individuals.iterkeys()):
+for id in sorted(individuals.keys()):
     print("IndivID: " + id + " Name: " + individuals[id]['NAME'])
 
 print("\nFamilies:")
-for id in sorted(families.iterkeys()):
+for id in sorted(families.keys()):
 	hubbyname = individuals[families[id]['HUSB']]['NAME']
 	wifeyname = individuals[families[id]['WIFE']]['NAME']
 	print("FamilyID: " + id + " Husband: " + hubbyname + " Wife: " + wifeyname)
