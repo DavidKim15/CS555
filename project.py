@@ -4,8 +4,9 @@
 # Individuals (ids, name) in order of id
 # Families (ids, hubby, wifey) in order of id
 
-# Stores the file
-gedcomFile = open("projectTest.ged")
+import sys
+# Stores the file, assumes there is a command line argument with the file name
+gedcomFile = open(sys.argv[1])
 
 # Stores all the valid tags at their corresponding levels
 tags = {'0': ['HEAD', 'TRLR', 'NOTE'],
