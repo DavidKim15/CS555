@@ -4,7 +4,9 @@
 # Individuals (ids, name) in order of id
 # Families (ids, hubby, wifey) in order of id
 
-import sys
+import sys 
+from us03birthBeforeDeath import birthBeforeDeath
+
 # Stores the file, assumes there is a command line argument with the file name
 gedcomFile = open(sys.argv[1])
 
@@ -94,3 +96,10 @@ for id in sorted(families.keys()):
 	hubbyname = individuals[families[id]['HUSB']]['NAME']
 	wifeyname = individuals[families[id]['WIFE']]['NAME']
 	print("FamilyID: " + id + " Husband: " + hubbyname + " Wife: " + wifeyname)
+
+print()
+# Checks US03 on all individuals (birth before death), assumes person has BIRT
+# tag, otherwise will print an error message
+for id in individuals:
+	if not birthBeforeDeath(individuals[id]):
+		print("Error US03: Birth date of " + individuals[id]['NAME'] + " (" + id + ") occurs after his death date.")
