@@ -16,6 +16,8 @@ specialTags = {'0': ['INDI', 'FAM']}
 # Dictionary of Individuals
 individuals = {}
 # Dictionary of Families
+# Structure of families: { fid: {HUSB: hid, WIFE: wid, CHIL: [cid1,cid2,...],
+# MARR: '1 FEB 2019', DIV: '3 FEB 2019'}, ...}
 families = {}
 
 indi_or_fam = 'indi'
