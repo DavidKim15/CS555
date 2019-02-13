@@ -4,8 +4,9 @@
 # Individuals (ids, name) in order of id
 # Families (ids, hubby, wifey) in order of id
 
-# Stores the file
-gedcomFile = open("projectTest.ged")
+import sys
+# Stores the file, assumes there is a command line argument with the file name
+gedcomFile = open(sys.argv[1])
 
 # Stores all the valid tags at their corresponding levels
 tags = {'0': ['HEAD', 'TRLR', 'NOTE'],
@@ -16,6 +17,8 @@ specialTags = {'0': ['INDI', 'FAM']}
 # Dictionary of Individuals
 individuals = {}
 # Dictionary of Families
+# Structure of families: { fid: {HUSB: hid, WIFE: wid, CHIL: [cid1,cid2,...],
+# MARR: '1 FEB 2019', DIV: '3 FEB 2019'}, ...}
 families = {}
 
 indi_or_fam = 'indi'
