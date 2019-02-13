@@ -1,17 +1,23 @@
 import unittest
 
 individuals = {
-            'jd': {'NAME': 'Jimmy /Supers/',  
+            'jd': {'NAME': 'Jimmy /Supers/',
+                    'SEX': 'M',
                     'DEAT': '31 DEC 2099'}, 
-            'jc': {'NAME': 'Jimmy /Connors/',  
+            'jc': {'NAME': 'Jimmy /Connors/',
+                    'SEX': 'M',  
                     'DEAT': '31 DEC 2099'}, 
-            'ce': {'NAME': 'Jaimie /Connors/', 
+            'ce': {'NAME': 'Jaimie /Connors/',
+                    'SEX': 'F', 
                     'DEAT': '31 DEC 2099'}, 
             'aa': {'NAME': 'Aaron /Connors/', 
+                    'SEX': 'M',
                     'DEAT': '31 DEC 2099'},
             'ab': {'NAME': 'Aaron /Pineapple/', 
+                    'SEX': 'M',
                     'DEAT': '31 DEC 2099'},
             'ac': {'NAME': 'Aaron /Connors/', 
+                    'SEX': 'M',
                     'DEAT': '31 DEC 2099'}
             }
 families = {'f1': {'HUSB': 'jc', 
@@ -39,17 +45,12 @@ def maleLastName(family, individuals):
     child_lastnames = []
     if 'HUSB' in family:
         hubby_lastname = individuals[family['HUSB']]['NAME'].split(" ",2)[1]
-        if 'WIFE' in family:
-            wifey_lastname = individuals[family['WIFE']]['NAME'].split(" ",2)[1]
-        else:
-            wifey_lastname = hubby_lastname
         if 'CHIL' in family:
             for cid in family['CHIL']:
-                child_lastnames.append(individuals[cid]['NAME'].split(" ",2)[1])
-    else:
+                if individuals[cid]['SEX'] == 'M':
+                    child_lastnames.append(individuals[cid]['NAME'].split(" ",2)[1])
+    else:  
         return True
-    if hubby_lastname != wifey_lastname:
-        return False
     for c_ln in child_lastnames:
         if hubby_lastname != c_ln:
             return False

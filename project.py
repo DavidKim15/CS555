@@ -6,6 +6,8 @@
 
 import sys 
 from us03birthBeforeDeath import birthBeforeDeath
+from us16maleLastNames import maleLastName
+from us29listDeceased import listDeceased
 
 # Stores the file, assumes there is a command line argument with the file name
 gedcomFile = open(sys.argv[1])
@@ -103,3 +105,21 @@ print()
 for id in individuals:
 	if not birthBeforeDeath(individuals[id]):
 		print("Error US03: Birth date of " + individuals[id]['NAME'] + " (" + id + ") occurs after his death date.")
+for id in families:
+	if not maleLastName(families[id],individuals):
+		husb = False
+		chil = []
+		if 'HUSB' in families[id]:
+			husb = True
+		if 'CHIL' in families[id]:
+			for cid in families[id]['CHIL']:
+				chil.append(cid)
+		print("Anomaly US16: Family " + id + " contains males with different last names:")
+		if husb:
+			print("HUSBAND: " + individuals[families[id]['HUSB']]['NAME'] + " (" + families[id]['HUSB']+ ")")
+		for cid in chil:
+			print("CHILD: " + individuals[cid]['NAME']+ " (" + cid+ ")")
+
+print("List of Deceased (US29):")
+for id in listDeceased(individuals):
+	print(individuals[id]['NAME'] + " (" + id+ ")")
