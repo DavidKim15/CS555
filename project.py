@@ -105,6 +105,7 @@ print()
 # tag, otherwise will print an error message
 for id in individuals:
 	if not birthBeforeDeath(individuals[id]):
+		# Check out these fancy f-strings, ohoho
 		print(f"Error US03: Birth date of {individuals[id]['NAME']}({id}) occurs after his death date.")
 
 # Checks US21 on all families (correct gender roles), assume marriage partners
