@@ -25,11 +25,8 @@ def birthBeforeDeath(person):
 	return False
 	
 
-'''Testing class that runs five tests on US03'''
+'''Testing class that runs several tests on US03'''
 class TestBirthBeforeDeath(unittest.TestCase):
-
-	def setUp(self):
-		pass
 
 	# Tests people who are still living
 	def test_jordie_is_alive(self):

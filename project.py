@@ -6,6 +6,7 @@
 
 import sys 
 from us03birthBeforeDeath import birthBeforeDeath
+from us21correctGenderRoles import correctGenderRoles
 
 # Stores the file, assumes there is a command line argument with the file name
 gedcomFile = open(sys.argv[1])
@@ -103,3 +104,18 @@ print()
 for id in individuals:
 	if not birthBeforeDeath(individuals[id]):
 		print("Error US03: Birth date of " + individuals[id]['NAME'] + " (" + id + ") occurs after his death date.")
+
+# Checks US21 on all families (correct gender roles), assume marriage partners
+# exist
+for id in families:
+	husbandId = families[id]['HUSB']
+	wifeId = families[id]['WIFE']
+	roles = correctGenderRoles(families[id],individuals)
+	# Prints error for husband
+	if not roles[0]:
+		print("Error US21: Gender role of husband " + individuals[husbandId]['NAME'] + 
+			" (" + husbandId + ")  of family " + id + " is female, instead of male.")
+	# Prints error for wife
+	if not roles[1]:
+		print("Error US21: Gender role of wife " + individuals[wifeId]['NAME'] + 
+			" (" + wifeId + ")  of family " + id + " is male, instead of female.")
