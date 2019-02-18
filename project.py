@@ -106,7 +106,7 @@ print()
 for id in individuals:
 	if not birthBeforeDeath(individuals[id]):
 		# Check out these fancy f-strings, ohoho
-		print(f"Error US03: Birth date of {individuals[id]['NAME']}({id}) occurs after his death date.")
+		print("Error US03: Birth date of {individuals[id]['NAME']}({id}) occurs after his death date.")
 
 # Checks US21 on all families (correct gender roles), assume marriage partners
 # exist
@@ -116,10 +116,10 @@ for id in families:
 	roles = correctGenderRoles(families[id],individuals)
 	# Prints error for husband
 	if not roles[0]:
-		print(f"Error US21: Gender role of husband {individuals[husbandId]['NAME']} ({husbandId}) of family {id} is female, instead of male.")
+		print("Error US21: Gender role of husband {individuals[husbandId]['NAME']} ({husbandId}) of family {id} is female, instead of male.")
 	# Prints error for wife
 	if not roles[1]:
-		print(f"Error US21: Gender role of wife {individuals[wifeId]['NAME']} ({wifeId}) of family {id} is male, instead of female.")
+		print("Error US21: Gender role of wife {individuals[wifeId]['NAME']} ({wifeId}) of family {id} is male, instead of female.")
 
 for id in families:
 	if not maleLastName(families[id],individuals):
