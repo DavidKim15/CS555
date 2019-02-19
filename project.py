@@ -135,7 +135,7 @@ for id in families:
 			print("HUSBAND: " + individuals[families[id]['HUSB']]['NAME'] + " (" + families[id]['HUSB']+ ")")
 		for cid in chil:
 			print("CHILD: " + individuals[cid]['NAME']+ " (" + cid+ ")")
-
+print()
 print("List of Deceased (US29):")
 for id in listDeceased(individuals):
 	print(individuals[id]['NAME'] + " (" + id+ ")")
