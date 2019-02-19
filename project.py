@@ -9,6 +9,8 @@ from us03birthBeforeDeath import birthBeforeDeath
 from us21correctGenderRoles import correctGenderRoles
 from us16maleLastNames import maleLastName
 from us29listDeceased import listDeceased
+from us05marriageBeforeDeath import marriageBeforeDeath
+from us04marriageBeforeDivorce import marriageBeforeDivorce
 
 # Stores the file, assumes there is a command line argument with the file name
 gedcomFile = open(sys.argv[1])
@@ -139,3 +141,15 @@ print()
 print("List of Deceased (US29):")
 for id in listDeceased(individuals):
 	print(individuals[id]['NAME'] + " (" + id+ ")")
+print()
+#Check userstory 05, marriage before death, on all families and individuals
+for id in families:
+	boolean = marriageBeforeDeath(families[id], individuals)
+	if boolean == False :
+		print("Error US05: Death occured in family " + id + " from a spouse before marriage" )
+#Check userstory 04, marriage before divorce, on all families
+for id in families:
+	boolean = marriageBeforeDeath(families[id])
+	if boolean == False :
+		print("Error US04: Marriage Occurs After Divorce in Family " + id)
+
