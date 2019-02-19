@@ -58,4 +58,3 @@ class TestMarriageBeforeDivorce(unittest.TestCase):
 if __name__ == '__main__':
 	unittest.main()
 
-__init__.py

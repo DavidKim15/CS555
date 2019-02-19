@@ -5,21 +5,21 @@
 # Families (ids, hubby, wifey) in order of id
 
 import sys 
-sys.path.insert(0, '/CS555/jordan')
-import us03birthBeforeDeath
-import us21correctGenderRoles
-sys.path.insert(0, '/CS555/david')
-import us16maleLastNames
-import us29listDeceased
-sys.path.insert(0, '/CS555/phil')
-import us05marriageBeforeDeath
-import us04marriageBeforeDivorce
-from us03birthBeforeDeath import birthBeforeDeath
-from us21correctGenderRoles import correctGenderRoles
-from us16maleLastNames import maleLastName
-from us29listDeceased import listDeceased
-from us05marriageBeforeDeath import marriageBeforeDeath
-from us04marriageBeforeDivorce import marriageBeforeDivorce
+# sys.path.insert(0, '/CS555/jordan')
+# import us03birthBeforeDeath
+# import us21correctGenderRoles
+# sys.path.insert(0, '/CS555/david')
+# import us16maleLastNames
+# import us29listDeceased
+# sys.path.insert(0, '/CS555/phil')
+# import us05marriageBeforeDeath
+# import us04marriageBeforeDivorce
+from jordan.us03birthBeforeDeath import birthBeforeDeath
+from jordan.us21correctGenderRoles import correctGenderRoles
+from david.us16maleLastNames import maleLastName
+from david.us29listDeceased import listDeceased
+from phil.us05marriageBeforeDeath import marriageBeforeDeath
+from phil.us04marriageBeforeDivorce import marriageBeforeDivorce
 
 # Stores the file, assumes there is a command line argument with the file name
 gedcomFile = open(sys.argv[1])
