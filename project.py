@@ -5,6 +5,15 @@
 # Families (ids, hubby, wifey) in order of id
 
 import sys 
+sys.path.insert(0, '/CS555/jordan')
+import us03birthBeforeDeath
+import us21correctGenderRoles
+sys.path.insert(0, '/CS555/david')
+import us16maleLastNames
+import us29listDeceased
+sys.path.insert(0, '/CS555/phil')
+import us05marriageBeforeDeath
+import us04marriageBeforeDivorce
 from us03birthBeforeDeath import birthBeforeDeath
 from us21correctGenderRoles import correctGenderRoles
 from us16maleLastNames import maleLastName
@@ -142,6 +151,8 @@ print("List of Deceased (US29):")
 for id in listDeceased(individuals):
 	print(individuals[id]['NAME'] + " (" + id+ ")")
 print()
+print(individuals)
+print(families)
 #Check userstory 05, marriage before death, on all families and individuals
 for id in families:
 	boolean = marriageBeforeDeath(families[id], individuals)
@@ -149,7 +160,7 @@ for id in families:
 		print("Error US05: Death occured in family " + id + " from a spouse before marriage" )
 #Check userstory 04, marriage before divorce, on all families
 for id in families:
-	boolean = marriageBeforeDeath(families[id])
+	boolean = marriageBeforeDivorce(families[id])
 	if boolean == False :
 		print("Error US04: Marriage Occurs After Divorce in Family " + id)
 
