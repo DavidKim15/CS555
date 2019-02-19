@@ -1,3 +1,4 @@
+Davids-MacBook-Pro:CS555 davidkim$ python3 project.py projectTest.ged
 --> 0 NOTE CS555
 <-- 0|NOTE|Y|CS555
 --> 0 NOTE the lines until the next note are all correct
@@ -16,8 +17,8 @@
 <-- 2|DATE|Y|1 JAN 1950
 --> 1 DEAT
 <-- 1|DEAT|Y|
---> 2 DATE 31 DEC 2099
-<-- 2|DATE|Y|31 DEC 2099
+--> 2 DATE 01 FEB 2019
+<-- 2|DATE|Y|01 FEB 2019
 --> 1 FAMC f3
 <-- 1|FAMC|Y|f3
 --> 1 FAMS f2
@@ -34,16 +35,16 @@
 <-- 2|DATE|Y|15 JAN 1949
 --> 1 DEAT
 <-- 1|DEAT|Y|
---> 2 DATE 31 DEC 2099
-<-- 2|DATE|Y|31 DEC 2099
+--> 2 DATE 01 FEB 2019
+<-- 2|DATE|Y|01 FEB 2019
 --> 1 FAMC f1
 <-- 1|FAMC|Y|f1
 --> 1 FAMS f2
 <-- 1|FAMS|Y|f2
 --> 0 aa INDI
 <-- 0|INDI|Y|aa
---> 1 NAME Aaron /Connors/
-<-- 1|NAME|Y|Aaron /Connors/
+--> 1 NAME Aaron /Pineapple/
+<-- 1|NAME|Y|Aaron /Pineapple/
 --> 1 SEX M
 <-- 1|SEX|Y|M
 --> 1 BIRT
@@ -64,7 +65,7 @@
 <-- 1|WIFE|Y|ce
 --> 1 CHIL aa
 <-- 1|CHIL|Y|aa
---> 1 MARR
+--> 1 MARR 
 <-- 1|MARR|Y|
 --> 2 DATE 1 JUN 1960
 <-- 2|DATE|Y|1 JUN 1960
@@ -74,10 +75,42 @@
 <-- 2|DATE|Y|1 JUN 1961
 --> 0 TRLR
 <-- 0|TRLR|Y|
+--> 0 ab INDI
+<-- 0|INDI|Y|ab
+--> 1 NAME Jane /Doe/
+<-- 1|NAME|Y|Jane /Doe/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1970
+<-- 2|DATE|Y|1 JAN 1970
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 01 FEB 1990
+<-- 2|DATE|Y|01 FEB 1990
+--> 1 FAMC f3
+<-- 1|FAMC|Y|f3
+--> 1 FAMS f2
+<-- 1|FAMS|Y|f2
 Individuals:
-IndivID: aa Name: Aaron /Connors/
+IndivID: aa Name: Aaron /Pineapple/
+IndivID: ab Name: Jane /Doe/
 IndivID: ce Name: Jaimie /Connors/
 IndivID: jc Name: Jimmy /Connors/
 
 Families:
 FamilyID: f2 Husband: Jimmy /Connors/ Wife: Jaimie /Connors/
+
+Anomaly US16: Family f2 contains males with different last names:
+HUSBAND: Jimmy /Connors/ (jc)
+CHILD: Aaron /Pineapple/ (aa)
+
+List of Deceased (US29):
+Jimmy /Connors/ (jc)
+Jaimie /Connors/ (ce)
+Aaron /Pineapple/ (aa)
+Jane /Doe/ (ab)
+
+{'jc': {'NAME': 'Jimmy /Connors/', 'SEX': 'M', 'BIRT': '1 JAN 1950', 'DEAT': '01 FEB 2019', 'FAMC': 'f3', 'FAMS': 'f2'}, 'ce': {'NAME': 'Jaimie /Connors/', 'SEX': 'F', 'BIRT': '15 JAN 1949', 'DEAT': '01 FEB 2019', 'FAMC': 'f1', 'FAMS': 'f2'}, 'aa': {'NAME': 'Aaron /Pineapple/', 'SEX': 'M', 'BIRT': '1 FEB 2000', 'DEAT': '31 DEC 2099', 'FAMC': 'f2'}, 'ab': {'NAME': 'Jane /Doe/', 'SEX': 'F', 'BIRT': '1 JAN 1970', 'DEAT': '01 FEB 1990', 'FAMC': 'f3', 'FAMS': 'f2'}}
+{'f2': {'HUSB': 'jc', 'WIFE': 'ce', 'CHIL': ['aa'], 'MARR': '1 JUN 1960', 'DIV': '1 JUN 1961'}}
