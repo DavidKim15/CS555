@@ -1,4 +1,3 @@
-Davids-MacBook-Pro:CS555 davidkim$ python3 project.py projectTest.ged
 --> 0 NOTE CS555
 <-- 0|NOTE|Y|CS555
 --> 0 NOTE the lines until the next note are all correct
@@ -65,7 +64,7 @@ Davids-MacBook-Pro:CS555 davidkim$ python3 project.py projectTest.ged
 <-- 1|WIFE|Y|ce
 --> 1 CHIL aa
 <-- 1|CHIL|Y|aa
---> 1 MARR 
+--> 1 MARR
 <-- 1|MARR|Y|
 --> 2 DATE 1 JUN 1960
 <-- 2|DATE|Y|1 JUN 1960
@@ -93,8 +92,8 @@ Davids-MacBook-Pro:CS555 davidkim$ python3 project.py projectTest.ged
 <-- 0|INDI|Y|de
 --> 1 NAME John /Doe/
 <-- 1|NAME|Y|John /Doe/
---> 1 SEX N
-<-- 1|SEX|Y|N
+--> 1 SEX F
+<-- 1|SEX|Y|F
 --> 1 BIRT
 <-- 1|BIRT|Y|
 --> 2 DATE 1 JAN 1930
@@ -113,7 +112,7 @@ Davids-MacBook-Pro:CS555 davidkim$ python3 project.py projectTest.ged
 <-- 1|HUSB|Y|de
 --> 1 WIFE ab
 <-- 1|WIFE|Y|ab
---> 1 MARR 
+--> 1 MARR
 <-- 1|MARR|Y|
 --> 2 DATE 1 JUN 1960
 <-- 2|DATE|Y|1 JUN 1960
@@ -121,6 +120,20 @@ Davids-MacBook-Pro:CS555 davidkim$ python3 project.py projectTest.ged
 <-- 1|DIV|Y|
 --> 2 DATE 1 JUN 1959
 <-- 2|DATE|Y|1 JUN 1959
+--> 0 jt INDI
+<-- 0|INDI|Y|jt
+--> 1 NAME Jordan /Tantuico/
+<-- 1|NAME|Y|Jordan /Tantuico/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 20 FEB 2019
+<-- 2|DATE|Y|20 FEB 2019
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 25 APR 1998
+<-- 2|DATE|Y|25 APR 1998
 --> 0 TRLR
 <-- 0|TRLR|Y|
 Individuals:
@@ -129,22 +142,25 @@ IndivID: ab Name: Jane /Doe/
 IndivID: ce Name: Jaimie /Connors/
 IndivID: de Name: John /Doe/
 IndivID: jc Name: Jimmy /Connors/
+IndivID: jt Name: Jordan /Tantuico/
 
 Families:
 FamilyID: f2 Husband: Jimmy /Connors/ Wife: Jaimie /Connors/
 FamilyID: f4 Husband: John /Doe/ Wife: Jane /Doe/
 
-Error US21: Gender role of husband {individuals[husbandId]['NAME']} ({husbandId}) of family {id} is female, instead of male.
+Error US03: Birth date of Jordan /Tantuico/ (jt) occurs after his death date.
+Error US21: Gender role of husband John /Doe/ (de) of family f4 is female, instead of male.
 Anomaly US16: Family f2 contains males with different last names:
 HUSBAND: Jimmy /Connors/ (jc)
 CHILD: Aaron /Pineapple/ (aa)
 
 List of Deceased (US29):
-Jimmy /Connors/ (jc)
-Jaimie /Connors/ (ce)
 Aaron /Pineapple/ (aa)
-Jane /Doe/ (ab)
+Jordan /Tantuico/ (jt)
+Jaimie /Connors/ (ce)
 John /Doe/ (de)
+Jimmy /Connors/ (jc)
+Jane /Doe/ (ab)
 
 Error US05: Death occured in family f4 between users before marriage
 Error US04: Marriage Occurs After Divorce in Family f4
