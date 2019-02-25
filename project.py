@@ -152,4 +152,5 @@ for id in families:
 	boolean = marriageBeforeDivorce(families[id])
 	if boolean == False :
 		print("Error US04: Marriage Occurs After Divorce in Family " + id)
-
+print(families)
+print(individuals)
