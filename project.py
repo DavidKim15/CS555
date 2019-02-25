@@ -5,12 +5,15 @@
 # Families (ids, hubby, wifey) in order of id
 
 import sys 
+# User stories imported in numerical order
 from jordan.us03birthBeforeDeath import birthBeforeDeath
-from jordan.us21correctGenderRoles import correctGenderRoles
-from david.us16maleLastNames import maleLastName
-from david.us29listDeceased import listDeceased
-from phil.us05marriageBeforeDeath import marriageBeforeDeath
 from phil.us04marriageBeforeDivorce import marriageBeforeDivorce
+from phil.us05marriageBeforeDeath import marriageBeforeDeath
+from jordan.us07lessThan150 import lessThan150
+from david.us16maleLastNames import maleLastName
+from jordan.us21correctGenderRoles import correctGenderRoles
+from david.us29listDeceased import listDeceased
+from jordan.us33listOrphans import isOrphan
 
 # Stores the file, assumes there is a command line argument with the file name
 gedcomFile = open(sys.argv[1])
@@ -103,6 +106,11 @@ for id in sorted(families.keys()):
 	print("FamilyID: " + id + " Husband: " + hubbyname + " Wife: " + wifeyname)
 
 print()
+
+################################################################################
+# Testing user stories														   #
+################################################################################
+
 # Checks US03 on all individuals (birth before death), assumes person has BIRT
 # tag, otherwise will print an error message
 for id in individuals:
@@ -110,19 +118,29 @@ for id in individuals:
 		# Check out these fancy f-strings, ohoho
 		print("Error US03: Birth date of " + individuals[id]['NAME'] + " (" + id + ") occurs after his death date.")
 
-# Checks US21 on all families (correct gender roles), assume marriage partners
-# exist
+print()
+#Check userstory 04, marriage before divorce, on all families
 for id in families:
-	husbandId = families[id]['HUSB']
-	wifeId = families[id]['WIFE']
-	roles = correctGenderRoles(families[id],individuals)
-	# Prints error for husband
-	if not roles[0]:
-		print("Error US21: Gender role of husband "+ individuals[husbandId]['NAME'] + " (" + husbandId + ") of family "+ id + " is female, instead of male.")
-	# Prints error for wife
-	if not roles[1]:
-		print("Error US21: Gender role of wife {individuals[wifeId]['NAME']} ({wifeId}) of family {id} is male, instead of female.")
+	boolean = marriageBeforeDivorce(families[id])
+	if boolean == False :
+		print("Error US04: Marriage Occurs After Divorce in Family " + id)
 
+print()
+#Check userstory 05, marriage before death, on all families and individuals
+for id in families:
+	boolean = marriageBeforeDeath(families[id], individuals)
+	if boolean == False :
+		print("Error US05: Death occured in family " + id + " between users before marriage" )
+
+print()
+# Tests US07, less than 150 years old
+for indiId in individuals:
+	person = individuals[indiId]
+	if not lessThan150(person):
+		print("Error US07: Individual " + person['NAME'] + " (" + indiId + ") is older than 150.")
+
+print()
+# User story 16
 for id in families:
 	if not maleLastName(families[id],individuals):
 		husb = False
@@ -138,18 +156,46 @@ for id in families:
 		for cid in chil:
 			print("CHILD: " + individuals[cid]['NAME']+ " (" + cid+ ")")
 print()
+
+
+# Checks US21 on all families (correct gender roles), assume marriage partners
+# exist
+for id in families:
+	husbandId = families[id]['HUSB']
+	wifeId = families[id]['WIFE']
+	roles = correctGenderRoles(families[id],individuals)
+	# Prints error for husband
+	if not roles[0]:
+		print("Error US21: Gender role of husband "+ individuals[husbandId]['NAME'] + " (" + husbandId + ") of family "+ id + " is female, instead of male.")
+	# Prints error for wife
+	if not roles[1]:
+		print("Error US21: Gender role of wife " +individuals[wifeId]['NAME'] +  " (" + wifeId + ") of family " + id + " is male, instead of female.")
+
+
+# User story 29
 print("List of Deceased (US29):")
 for id in listDeceased(individuals):
 	print(individuals[id]['NAME'] + " (" + id+ ")")
 print()
-#Check userstory 05, marriage before death, on all families and individuals
-for id in families:
-	boolean = marriageBeforeDeath(families[id], individuals)
-	if boolean == False :
-		print("Error US05: Death occured in family " + id + " between users before marriage" )
-#Check userstory 04, marriage before divorce, on all families
-for id in families:
-	boolean = marriageBeforeDivorce(families[id])
-	if boolean == False :
-		print("Error US04: Marriage Occurs After Divorce in Family " + id)
 
+
+# Tests user story 33 (list orphans) on all children
+for familyId in families:
+	# Gets the current family
+	family = families[familyId]
+	# Skips families that do not have any children
+	if 'CHIL' not in family:
+		continue
+	# loops through each child in each family
+	for childId in family['CHIL']:
+		# Gets the child
+		child = individuals[childId]
+		# Gets the mother
+		motherId = family['WIFE']
+		mother = individuals[motherId]
+		# Gets the father
+		fatherId = family['HUSB']
+		father = individuals[fatherId]
+		# Runs the user story
+		if isOrphan(child,mother,father):
+			print("US33:", child['NAME'], "(" + childId + ")", "of family",familyId,"is an orphan.")

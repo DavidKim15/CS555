@@ -17,7 +17,7 @@ def isOrphan(child, mom, dad):
 	return False
 
 '''Testing class to detect orphans in a gedcom file'''
-class TestListOrphans(unittest.TestCase):
+class TestIsOrphan(unittest.TestCase):
 
 	# Tests a living child with both parents living
 	def test_child_both_parents_living(self):

@@ -1,7 +1,9 @@
 import unittest
 from datetime import datetime
 
+# Returns True if an individual is less than 150 years old, False otherwise
 def lessThan150(individual):
+	# If the person is dead, compares birthdate to deathdate
 	if 'DEAT' in individual:
 		birthdate = datetime.strptime(individual['BIRT'], '%d %b %Y')
 		deathdate = datetime.strptime(individual['DEAT'], '%d %b %Y')
@@ -9,6 +11,7 @@ def lessThan150(individual):
 			return True
 		else:
 			return False
+	# If person is alive, compares birthdate to current date
 	else:
 		now = datetime.now()
 		birthdate = datetime.strptime(individual['BIRT'], '%d %b %Y')
@@ -17,6 +20,7 @@ def lessThan150(individual):
 		else:
 			return False
 
+# Testing class for US07, less than 150 years old
 class TestLessThan150(unittest.TestCase):
 
 	# Testing the death of Jesus Christ
