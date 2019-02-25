@@ -10,9 +10,11 @@ from jordan.us03birthBeforeDeath import birthBeforeDeath
 from phil.us04marriageBeforeDivorce import marriageBeforeDivorce
 from phil.us05marriageBeforeDeath import marriageBeforeDeath
 from jordan.us07lessThan150 import lessThan150
+from david.us15fewerThan15Sibs import fewerThan15Sibs
 from david.us16maleLastNames import maleLastName
 from jordan.us21correctGenderRoles import correctGenderRoles
 from david.us29listDeceased import listDeceased
+from david.us31listLivingSingle import listLivingSingle
 from jordan.us33listOrphans import isOrphan
 
 # Stores the file, assumes there is a command line argument with the file name
@@ -140,6 +142,15 @@ for indiId in individuals:
 		print("Error US07: Individual " + person['NAME'] + " (" + indiId + ") is older than 150.")
 
 print()
+
+# User story 15
+for familyId in families:
+	fam = families[familyId]
+	trueOrFalse = fewerThan15Sibs(families[familyId])
+	if (not trueOrFalse):
+		print("Error US15: Family " + familyId + "has more than 15 siblings.")
+
+print()
 # User story 16
 for id in families:
 	if not maleLastName(families[id],individuals):
@@ -178,7 +189,12 @@ for id in listDeceased(individuals):
 	print(individuals[id]['NAME'] + " (" + id+ ")")
 print()
 
+# User story 31
+print("List of Living Single Individuals over 30 (US31):")
+for id in listLivingSingle(individuals):
+	print(individuals[id]['NAME'] + " (" + id+ ")")
 
+print()
 # Tests user story 33 (list orphans) on all children
 for familyId in families:
 	# Gets the current family
