@@ -5,25 +5,25 @@
 import unittest
 from datetime import datetime
 
+''' Converts a string into a date object. The parameter date is the date string 
+	in the form "23 APR 2019" '''
+def getDate(date):
+	return datetime.strptime(date, '%d %b %Y')
+
 '''Returns True when person's birth is before their death. Returns False
-   otherwise'''
+   otherwise. Parameter person is a dictionary object with several GEDCOM 
+   tags as keys. The person is assumed to have all the required tags (like BIRT)
+   '''
 def birthBeforeDeath(person):
-	if 'BIRT' not in person:
-		return False
-	# Person still living
+	# Person is still living, doesn't have DEAT tag
 	if 'DEAT' not in person:
 		return True
-	# Person died on same day of birth
-	if person['BIRT'] == person['DEAT']:
-		return False
 	# Obtains date values from person
-	birthdate = datetime.strptime(person['BIRT'], '%d %b %Y')
-	deathdate = datetime.strptime(person['DEAT'], '%d %b %Y')
-	# Compares birthdate with deathdate
-	if birthdate < deathdate:
-		return True
-	return False
-	
+	birthdate = getDate(person['BIRT'])
+	deathdate = getDate(person['DEAT'])
+	# If birthdate is less than deathdate, that means birthdate is earlier
+	return birthdate <= deathdate
+
 
 '''Testing class that runs several tests on US03'''
 class TestBirthBeforeDeath(unittest.TestCase):
@@ -47,26 +47,27 @@ class TestBirthBeforeDeath(unittest.TestCase):
 		# These unfortunate insects only live for 24 hours, yet they are still
 		# able to reproduce.
 		mayfly = { 'NAME': 'Marty McMayfly', 'BIRT': '12 FEB 2019', 'DEAT': '12 FEB 2019'}
-		self.assertFalse(birthBeforeDeath(mayfly))
-
+		self.assertTrue(birthBeforeDeath(mayfly))
 
 	# Tests people who died before they were born
 	def test_back_to_the_future(self):
 		# In this alternate timeline, Marty dies when he goes to the past
-		marty = { 'NAME': 'Marty McFly', 'BIRTH': '12 JUN 1968', 'DEAT': '5 NOV 1955'}
+		marty = { 'NAME': 'Marty McFly', 'BIRT': '12 JUN 1968', 'DEAT': '5 NOV 1955'}
 		self.assertFalse(birthBeforeDeath(marty))
 
-	# Tests exos who don't have birthdays
-	def test_no_birth(self):
-		# RIP Cayde-6
-		cayde6 = { 'NAME': 'Cayde-6', 'DEAT': '4 SEP 2018'}
-		self.assertFalse(birthBeforeDeath(cayde6))
+	# Tests the helper function getDate
+	def test_get_date(self):
+		# Leap year
+		dateString = '29 FEB 2016'
+		dateObject = datetime(2016, 2, 29)
+		self.assertEqual(dateObject, getDate(dateString))
 
-	# Tests inanimate objects that have no birth or death
-	def test_chair(self):
-		# It's just a chair
-		chair = { 'NAME': 'Chair'}
-		self.assertFalse(birthBeforeDeath(chair))
+	# Tests two dates that are not the same
+	def test_get_date2(self):
+		# Leap year
+		dateString = '29 FEB 2016'
+		dateObject = datetime(2016, 2, 28)
+		self.assertNotEqual(dateObject, getDate(dateString))
 
 
 if __name__ == '__main__':
