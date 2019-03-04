@@ -18,7 +18,6 @@ def divorceBeforeDeath(family, individuals):
     return True
 
 class Testus06DivorceBeforeDeath(unittest.TestCase):
-
 #test when divorced prior to death of both husband and wife
     def test_Normal_divorce(self):
         individuals = {'jc' : {'BIRT': '1 FEB 1900', 'FAMC': 'f2', 'NAME': 'John Doe', 'SEX': 'M', 'DEAT' : '1 NOV 1999'},'ce': {'BIRT': '1 FEB 1900', 'FAMC': 'f2', 'NAME': 'Jane Doe', 'SEX': 'F', 'DEAT': '1 JUN 1980'}}
