@@ -9,6 +9,8 @@ import sys
 from jordan.us03birthBeforeDeath import birthBeforeDeath
 from phil.us04marriageBeforeDivorce import marriageBeforeDivorce
 from phil.us05marriageBeforeDeath import marriageBeforeDeath
+from phil.us06divorceBeforeDeath import divorceBeforeDeath
+from phil.us02birthBeforeMarriage import birthBeforeMarriage
 from jordan.us07lessThan150 import lessThan150
 from david.us15fewerThan15Sibs import fewerThan15Sibs
 from david.us16maleLastNames import maleLastName
@@ -113,6 +115,12 @@ print()
 # Testing user stories														   #
 ################################################################################
 
+#Checks userstory 2, birth before marriage
+for id in individuals:
+	boolean = birthBeforeMarriage(individuals[id], families)
+	if boolean == False:
+		print("Error US02: Birth date of " + individuals[id]['NAME']+ " (" + id + ") occurs after his marriage date.")
+print()
 # Checks US03 on all individuals (birth before death), assumes person has BIRT
 # tag, otherwise will print an error message
 for id in individuals:
@@ -135,6 +143,15 @@ for id in families:
 		print("Error US05: Death occured in family " + id + " between users before marriage" )
 
 print()
+
+#Check userstory 06, divorce before death, on all families and individuals
+for id in families:
+	boolean = divorceBeforeDeath(families[id], individuals)
+	if boolean == False :
+		print("Error US06: Divorce occured in family " + id + " on " + families[id]['DIV'] + " after death of both partners")
+
+print()
+
 # Tests US07, less than 150 years old
 for indiId in individuals:
 	person = individuals[indiId]

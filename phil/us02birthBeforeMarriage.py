@@ -1,5 +1,9 @@
 from datetime import datetime
 import unittest
+# for id in individuals:
+#     boolean = birthBeforeMarriage(individuals[id], families)
+#     if boolean = false:
+#         print("Error: US02 Marriage Occurs in individual "+ id + " before Birth")
 '''Returns true when birth occurs before marriage, and false when birth occurs after marriage'''
 def birthBeforeMarriage(individual, families):
     if 'FAMS' in individual :

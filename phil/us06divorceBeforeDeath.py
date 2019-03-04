@@ -1,5 +1,6 @@
 from datetime import datetime
 import unittest
+
 '''Returns true in normal situation, i.e. divorce occurs before death of both spouses, false when
 divorce occurs after death of both spouses'''
 def divorceBeforeDeath(family, individuals):
@@ -11,19 +12,10 @@ def divorceBeforeDeath(family, individuals):
                 husbandDeath = datetime.strptime(individuals[husband]['DEAT'], '%d %b %Y')
                 wifeDeath = datetime.strptime(individuals[wife]['DEAT'], '%d %b %Y')
                 divorce = datetime.strptime(family['DIV'], '%d %b %Y')
-                if husbandDeath < divorce:
-                    if wifeDeath < divorce:
-                        return False
-                    else: 
-                        return True
-                else:
-                    return True
-            else:
-                return True
-        else :
-            return True
-    else :
-        return True
+                if husbandDeath < divorce and wifeDeath < divorce:
+                    # if wifeDeath < divorce:
+                    return False
+    return True
 
 class Testus06DivorceBeforeDeath(unittest.TestCase):
 

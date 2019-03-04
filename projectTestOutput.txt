@@ -48,12 +48,8 @@
 <-- 1|SEX|Y|M
 --> 1 BIRT
 <-- 1|BIRT|Y|
---> 2 DATE 1 FEB 2000
-<-- 2|DATE|Y|1 FEB 2000
---> 1 DEAT
-<-- 1|DEAT|Y|
---> 2 DATE 31 DEC 2099
-<-- 2|DATE|Y|31 DEC 2099
+--> 2 DATE 1 FEB 2010
+<-- 2|DATE|Y|1 FEB 2010
 --> 1 FAMC f2
 <-- 1|FAMC|Y|f2
 --> 0 f2 FAM
@@ -134,6 +130,118 @@
 <-- 1|DEAT|Y|
 --> 2 DATE 25 APR 1998
 <-- 2|DATE|Y|25 APR 1998
+--> 0 tj INDI
+<-- 0|INDI|Y|tj
+--> 1 NAME Tantuico /Jordan/
+<-- 1|NAME|Y|Tantuico /Jordan/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 20 FEB 2019
+<-- 2|DATE|Y|20 FEB 2019
+--> 1 FAMC fj
+<-- 1|FAMC|Y|fj
+--> 0 it INDI
+<-- 0|INDI|Y|it
+--> 1 NAME Irene /Tantuico/
+<-- 1|NAME|Y|Irene /Tantuico/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 20 FEB 2019
+<-- 2|DATE|Y|20 FEB 2019
+--> 1 FAMS fj
+<-- 1|FAMS|Y|fj
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 20 FEB 2020
+<-- 2|DATE|Y|20 FEB 2020
+--> 0 st INDI
+<-- 0|INDI|Y|st
+--> 1 NAME Sam /Tantuico/
+<-- 1|NAME|Y|Sam /Tantuico/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 20 FEB 2019
+<-- 2|DATE|Y|20 FEB 2019
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 20 FEB 2020
+<-- 2|DATE|Y|20 FEB 2020
+--> 1 FAMS fj
+<-- 1|FAMS|Y|fj
+--> 0 fj FAM
+<-- 0|FAM|Y|fj
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 20 FEB 2019
+<-- 2|DATE|Y|20 FEB 2019
+--> 1 HUSB st
+<-- 1|HUSB|Y|st
+--> 1 WIFE it
+<-- 1|WIFE|Y|it
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 0 og INDI
+<-- 0|INDI|Y|og
+--> 1 NAME Old /Guy/
+<-- 1|NAME|Y|Old /Guy/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 2 FEB 1800
+<-- 2|DATE|Y|2 FEB 1800
+--> 0 rt INDI
+<-- 0|INDI|Y|rt
+--> 1 NAME Ben /Dover/
+<-- 1|NAME|Y|Ben /Dover/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1970
+<-- 2|DATE|Y|1 JAN 1970
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 01 FEB 1990
+<-- 2|DATE|Y|01 FEB 1990
+--> 1 FAMS f5
+<-- 1|FAMS|Y|f5
+--> 0 xp INDI
+<-- 0|INDI|Y|xp
+--> 1 NAME Hugh /Jazz/
+<-- 1|NAME|Y|Hugh /Jazz/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1930
+<-- 2|DATE|Y|1 JAN 1930
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 01 FEB 1940
+<-- 2|DATE|Y|01 FEB 1940
+--> 1 FAMS f5
+<-- 1|FAMS|Y|f5
+--> 0 f5 FAM
+<-- 0|FAM|Y|f5
+--> 1 HUSB xp
+<-- 1|HUSB|Y|xp
+--> 1 WIFE rt
+<-- 1|WIFE|Y|rt
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 1960
+<-- 2|DATE|Y|1 JUN 1960
+--> 1 DIV
+<-- 1|DIV|Y|
+--> 2 DATE 1 JUN 2030
+<-- 2|DATE|Y|1 JUN 2030
 --> 0 TRLR
 <-- 0|TRLR|Y|
 Individuals:
@@ -141,26 +249,58 @@ IndivID: aa Name: Aaron /Pineapple/
 IndivID: ab Name: Jane /Doe/
 IndivID: ce Name: Jaimie /Connors/
 IndivID: de Name: John /Doe/
+IndivID: it Name: Irene /Tantuico/
 IndivID: jc Name: Jimmy /Connors/
 IndivID: jt Name: Jordan /Tantuico/
+IndivID: og Name: Old /Guy/
+IndivID: rt Name: Ben /Dover/
+IndivID: st Name: Sam /Tantuico/
+IndivID: tj Name: Tantuico /Jordan/
+IndivID: xp Name: Hugh /Jazz/
 
 Families:
 FamilyID: f2 Husband: Jimmy /Connors/ Wife: Jaimie /Connors/
 FamilyID: f4 Husband: John /Doe/ Wife: Jane /Doe/
+FamilyID: f5 Husband: Hugh /Jazz/ Wife: Ben /Dover/
+FamilyID: fj Husband: Sam /Tantuico/ Wife: Irene /Tantuico/
+
+Error US02: Birth date of Ben /Dover/ (rt) occurs after his marriage date.
+Error US02: Birth date of Jane /Doe/ (ab) occurs after his marriage date.
 
 Error US03: Birth date of Jordan /Tantuico/ (jt) occurs after his death date.
-Error US21: Gender role of husband John /Doe/ (de) of family f4 is female, instead of male.
+
+Error US04: Marriage Occurs After Divorce in Family f4
+
+Error US05: Death occured in family f4 between users before marriage
+Error US05: Death occured in family f5 between users before marriage
+
+Error US06: Divorce occured in family f5 on 1 JUN 2030 after death of both partners
+
+Error US07: Individual Old /Guy/ (og) is older than 150.
+
+
 Anomaly US16: Family f2 contains males with different last names:
 HUSBAND: Jimmy /Connors/ (jc)
 CHILD: Aaron /Pineapple/ (aa)
+Anomaly US16: Family fj contains males with different last names:
+HUSBAND: Sam /Tantuico/ (st)
+CHILD: Tantuico /Jordan/ (tj)
 
+Error US21: Gender role of husband John /Doe/ (de) of family f4 is female, instead of male.
+Error US21: Gender role of husband Hugh /Jazz/ (xp) of family f5 is female, instead of male.
 List of Deceased (US29):
-Aaron /Pineapple/ (aa)
-Jordan /Tantuico/ (jt)
-Jaimie /Connors/ (ce)
-John /Doe/ (de)
 Jimmy /Connors/ (jc)
+Jaimie /Connors/ (ce)
+Ben /Dover/ (rt)
+Hugh /Jazz/ (xp)
+Jordan /Tantuico/ (jt)
+Sam /Tantuico/ (st)
 Jane /Doe/ (ab)
+John /Doe/ (de)
+Irene /Tantuico/ (it)
 
-Error US05: Death occured in family f4 between users before marriage
-Error US04: Marriage Occurs After Divorce in Family f4
+List of Living Single Individuals over 30 (US31):
+Old /Guy/ (og)
+
+US33: Aaron /Pineapple/ (aa) of family f2 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family fj is an orphan.
