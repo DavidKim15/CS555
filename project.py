@@ -16,8 +16,10 @@ from david.us15fewerThan15Sibs import fewerThan15Sibs
 from david.us16maleLastNames import maleLastName
 from jordan.us21correctGenderRoles import correctGenderRoles
 from david.us29listDeceased import listDeceased
+from david.us30listLivingMarried import listLivingMarried
 from david.us31listLivingSingle import listLivingSingle
 from jordan.us33listOrphans import isOrphan
+from david.us39listUpcomingAnniversaries import listUpcomingAnniversaries
 
 # Stores the file, assumes there is a command line argument with the file name
 gedcomFile = open(sys.argv[1])
@@ -206,6 +208,12 @@ for id in listDeceased(individuals):
 	print(individuals[id]['NAME'] + " (" + id+ ")")
 print()
 
+# User story 30
+print("List of Living Married Individuals (US30):")
+for id in listLivingMarried(individuals):
+	print(individuals[id]['NAME'] + " (" + id+ ")")
+print()
+
 # User story 31
 print("List of Living Single Individuals over 30 (US31):")
 for id in listLivingSingle(individuals):
@@ -232,3 +240,9 @@ for familyId in families:
 		# Runs the user story
 		if isOrphan(child,mother,father):
 			print("US33:", child['NAME'], "(" + childId + ")", "of family",familyId,"is an orphan.")
+
+# User story 39
+print("List of Couples Whos' Anniversaries Are Within 30 Days (US39):")
+for fid in listUpcomingAnniversaries(families):
+	print(individuals[families[fid]['HUSB']]['NAME'] + "(" + families[fid]['HUSB'] + ") and " + individuals[families[fid]['WIFE']]['NAME'] + "(" + families[fid]['WIFE'] + ") have an anniversary coming up on " + families[fid]['MARR'] + "!")
+print()

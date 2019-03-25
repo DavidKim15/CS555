@@ -20,7 +20,7 @@ individuals = {
             }
 # over 30 never been married
 def listLivingSingle(individuals):
-    list_single = []
+    list_single = [] # list of ids
     for id in individuals:
         if 'BIRT' in individuals[id] and 'DEAT' not in individuals[id]:
             now = datetime.now()
