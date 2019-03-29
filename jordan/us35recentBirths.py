@@ -1,6 +1,7 @@
 import unittest
 from datetime import datetime, timedelta
-from us03birthBeforeDeath import getDate
+# If you want to run this locally, remove "jordan."
+from jordan.us03birthBeforeDeath import getDate
 
 # Returns True if the person record has been born in the past 30 days, returns 
 # False otherwise. Assumes that the person was born before the current date

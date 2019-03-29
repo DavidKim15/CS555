@@ -1,6 +1,10 @@
 import unittest
 from datetime import datetime, timedelta
-from us03birthBeforeDeath import getDate
+
+''' Converts a string into a date object. The parameter date is the date string 
+	in the form "23 APR 2019" '''
+def getDate(date):
+	return datetime.strptime(date, '%d %b %Y')
 
 # Returns True if the person record has died in the past 30 days, returns 
 # False otherwise. Assumes that the person has died before the current date

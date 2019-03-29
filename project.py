@@ -19,6 +19,8 @@ from david.us29listDeceased import listDeceased
 from david.us30listLivingMarried import listLivingMarried
 from david.us31listLivingSingle import listLivingSingle
 from jordan.us33listOrphans import isOrphan
+from jordan.us35recentBirths import isRecentBirth
+from jordan.us36recentDeaths import isRecentDeath
 from david.us39listUpcomingAnniversaries import listUpcomingAnniversaries
 
 # Stores the file, assumes there is a command line argument with the file name
@@ -240,6 +242,18 @@ for familyId in families:
 		# Runs the user story
 		if isOrphan(child,mother,father):
 			print("US33:", child['NAME'], "(" + childId + ")", "of family",familyId,"is an orphan.")
+
+# User story 35: list recent births
+for id in individuals:
+	person = individuals[id]
+	if isRecentBirth(person):
+		print("US35: " + person['NAME'] + "(" + id + ") was born in the past 30 days")
+
+# User story 36: list recent deaths
+for id in individuals:
+	person = individuals[id]
+	if isRecentDeath(person):
+		print("US36: " + person['NAME'] + "(" + id + ") has died in the past 30 days")
 
 # User story 39
 print("List of Couples Whos' Anniversaries Are Within 30 Days (US39):")
