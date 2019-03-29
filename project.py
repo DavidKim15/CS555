@@ -212,7 +212,7 @@ print()
 
 # User story 30
 print("List of Living Married Individuals (US30):")
-for id in listLivingMarried(individuals):
+for id in listLivingMarried(families):
 	print(individuals[id]['NAME'] + " (" + id+ ")")
 print()
 
@@ -254,7 +254,7 @@ for id in individuals:
 	person = individuals[id]
 	if isRecentDeath(person):
 		print("US36: " + person['NAME'] + "(" + id + ") has died in the past 30 days")
-
+print()
 # User story 39
 print("List of Couples Whos' Anniversaries Are Within 30 Days (US39):")
 for fid in listUpcomingAnniversaries(families):
