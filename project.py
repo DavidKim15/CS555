@@ -15,6 +15,7 @@ from phil.us02birthBeforeMarriage import birthBeforeMarriage
 from phil.us17noMarriagesToChildren import noMarriagesToChildren
 from phil.us18siblingsShouldNotMarry import siblingsShouldNotMarry
 from jordan.us07lessThan150 import lessThan150
+from jordan.us10marriageAfter14 import marriageAfter14
 from david.us15fewerThan15Sibs import fewerThan15Sibs
 from david.us16maleLastNames import maleLastName
 from jordan.us21correctGenderRoles import correctGenderRoles
@@ -199,6 +200,25 @@ for indiId in individuals:
 		print("Error US07: Individual " + person['NAME'] + " (" + indiId + ") is older than 150.")
 
 print()
+
+# User story 10: marriage after 14
+for id in families:
+	# Gets the families and husband and wife ids
+	family = families[id]
+	husbandId = family['HUSB']
+	wifeId = family['WIFE']
+	husband = individuals[husbandId]
+	wife = individuals[wifeId]
+	# Gets their marriage and birth dates
+	marriageDate = getDate(family['MARR'])
+	husbandBirthDate = getDate(husband['BIRT'])
+	wifeBirthDate = getDate(wife['BIRT'])
+	# Checks the husband and wife
+	if not marriageAfter14(husbandBirthDate,marriageDate):
+		print("Error US10: Husband " + husband['NAME'] + " (" + husbandId + ") of family " + id + " was married before he turned 14")
+	if not marriageAfter14(wifeBirthDate,marriageDate):
+		print("Error US10: Wife " + wife['NAME'] + " (" + wifeId + ") of family " + id + " was married before she turned 14")
+
 
 # User story 15
 for familyId in families:
