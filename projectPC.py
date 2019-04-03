@@ -11,19 +11,13 @@ from phil.us04marriageBeforeDivorce import marriageBeforeDivorce
 from phil.us05marriageBeforeDeath import marriageBeforeDeath
 from phil.us06divorceBeforeDeath import divorceBeforeDeath
 from phil.us02birthBeforeMarriage import birthBeforeMarriage
-from phil.us17noMarriagesToChildren import noMarriagesToChildren
-from phil.us18siblingsShouldNotMarry import siblingsShouldNotMarry
 from jordan.us07lessThan150 import lessThan150
 from david.us15fewerThan15Sibs import fewerThan15Sibs
 from david.us16maleLastNames import maleLastName
 from jordan.us21correctGenderRoles import correctGenderRoles
 from david.us29listDeceased import listDeceased
-from david.us30listLivingMarried import listLivingMarried
 from david.us31listLivingSingle import listLivingSingle
 from jordan.us33listOrphans import isOrphan
-from jordan.us35recentBirths import isRecentBirth
-from jordan.us36recentDeaths import isRecentDeath
-from david.us39listUpcomingAnniversaries import listUpcomingAnniversaries
 
 # Stores the file, assumes there is a command line argument with the file name
 gedcomFile = open(sys.argv[1])
@@ -191,12 +185,7 @@ for id in families:
 			print("CHILD: " + individuals[cid]['NAME']+ " (" + cid+ ")")
 print()
 
-#us17, no marriages to children
-noMarriagesToChildren(individuals, families)
 
-#us18, siblings should not marry
-
-siblingsShouldNotMarry(individuals, families)
 # Checks US21 on all families (correct gender roles), assume marriage partners
 # exist
 for id in families:
@@ -214,12 +203,6 @@ for id in families:
 # User story 29
 print("List of Deceased (US29):")
 for id in listDeceased(individuals):
-	print(individuals[id]['NAME'] + " (" + id+ ")")
-print()
-
-# User story 30
-print("List of Living Married Individuals (US30):")
-for id in listLivingMarried(families):
 	print(individuals[id]['NAME'] + " (" + id+ ")")
 print()
 
@@ -249,21 +232,3 @@ for familyId in families:
 		# Runs the user story
 		if isOrphan(child,mother,father):
 			print("US33:", child['NAME'], "(" + childId + ")", "of family",familyId,"is an orphan.")
-
-# User story 35: list recent births
-for id in individuals:
-	person = individuals[id]
-	if isRecentBirth(person):
-		print("US35: " + person['NAME'] + "(" + id + ") was born in the past 30 days")
-
-# User story 36: list recent deaths
-for id in individuals:
-	person = individuals[id]
-	if isRecentDeath(person):
-		print("US36: " + person['NAME'] + "(" + id + ") has died in the past 30 days")
-print()
-# User story 39
-print("List of Couples Whos' Anniversaries Are Within 30 Days (US39):")
-for fid in listUpcomingAnniversaries(families):
-	print(individuals[families[fid]['HUSB']]['NAME'] + "(" + families[fid]['HUSB'] + ") and " + individuals[families[fid]['WIFE']]['NAME'] + "(" + families[fid]['WIFE'] + ") have an anniversary coming up on " + families[fid]['MARR'] + "!")
-print()
