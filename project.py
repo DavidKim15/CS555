@@ -6,6 +6,7 @@
 
 import sys 
 # User stories imported in numerical order
+from jordan.us01datesBeforeCurrentDate import dateAfterCurrent
 from jordan.us03birthBeforeDeath import birthBeforeDeath
 from phil.us04marriageBeforeDivorce import marriageBeforeDivorce
 from phil.us05marriageBeforeDeath import marriageBeforeDeath
@@ -24,6 +25,13 @@ from jordan.us33listOrphans import isOrphan
 from jordan.us35recentBirths import isRecentBirth
 from jordan.us36recentDeaths import isRecentDeath
 from david.us39listUpcomingAnniversaries import listUpcomingAnniversaries
+
+from datetime import datetime
+
+''' Converts a string into a date object. The parameter date is the date string 
+	in the form "23 APR 2019" '''
+def getDate(date):
+	return datetime.strptime(date, '%d %b %Y')
 
 # Stores the file, assumes there is a command line argument with the file name
 gedcomFile = open(sys.argv[1])
@@ -121,6 +129,32 @@ print()
 # Testing user stories														   #
 ################################################################################
 
+# US 01: Dates before current date
+# Tests individuals
+for id in individuals:
+	person = individuals[id]
+	# Tests birthday
+	birthdate = getDate(person['BIRT'])
+	if dateAfterCurrent(birthdate):
+		print("Error US01: " + person['NAME'] + "'s (" + id + ") birth date occurs after the current date")
+	# Tests death day
+	if 'DEAT' in person:
+		deathdate = getDate(person['DEAT'])
+		if dateAfterCurrent(deathdate):
+			print("Error US01: " + person['NAME'] + "'s (" + id + ") death date occurs after the current date")
+
+# Tests families
+for id in families:
+	family = families[id]
+	marriageDate = getDate(family['MARR'])
+	if dateAfterCurrent(marriageDate):
+		print("Error US01: Family " + id + "'s marriage date occurs after the current date")
+	if 'DIV' in family:
+		divorceDate = getDate(family['DIV'])
+		if dateAfterCurrent(divorceDate):
+			print("Error US01: Family " + id + "'s divorce date occurs after the current date")
+
+print()
 #Checks userstory 2, birth before marriage
 for id in individuals:
 	boolean = birthBeforeMarriage(individuals[id], families)
