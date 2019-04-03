@@ -51,5 +51,14 @@ class TestRecentDeaths(unittest.TestCase):
 		individual = { 'NAME': 'Jordan Tantuico', 'DEAT': strThirtyDaysAgo}
 		self.assertTrue(isRecentDeath(individual))
 
+	# Tests a person who died after the current date
+	def test_died_after_present(self):
+		today = datetime.today()
+		thirtyDays = timedelta(days=1)
+		thirtyDaysAgo = today - thirtyDays
+		strThirtyDaysAgo = thirtyDaysAgo.strftime('%d %b %Y')
+		individual = { 'NAME': 'Jordan Tantuico', 'DEAT': strThirtyDaysAgo}
+		self.assertTrue(isRecentDeath(individual))
+
 if __name__ == '__main__':
 	unittest.main()
