@@ -1,3 +1,4 @@
+(base) Davids-MacBook-Pro:CS555 davidkim$ python3 project.py projectTest.ged
 --> 0 NOTE CS555
 <-- 0|NOTE|Y|CS555
 --> 0 NOTE the lines until the next note are all correct
@@ -18,8 +19,6 @@
 <-- 1|DEAT|Y|
 --> 2 DATE 01 FEB 2019
 <-- 2|DATE|Y|01 FEB 2019
---> 1 FAMC f3
-<-- 1|FAMC|Y|f3
 --> 1 FAMS f2
 <-- 1|FAMS|Y|f2
 --> 0 ce INDI
@@ -36,8 +35,6 @@
 <-- 1|DEAT|Y|
 --> 2 DATE 01 FEB 2019
 <-- 2|DATE|Y|01 FEB 2019
---> 1 FAMC f1
-<-- 1|FAMC|Y|f1
 --> 1 FAMS f2
 <-- 1|FAMS|Y|f2
 --> 0 aa INDI
@@ -60,7 +57,7 @@
 <-- 1|WIFE|Y|ce
 --> 1 CHIL aa
 <-- 1|CHIL|Y|aa
---> 1 MARR
+--> 1 MARR 
 <-- 1|MARR|Y|
 --> 2 DATE 1 JUN 1960
 <-- 2|DATE|Y|1 JUN 1960
@@ -108,7 +105,7 @@
 <-- 1|HUSB|Y|de
 --> 1 WIFE ab
 <-- 1|WIFE|Y|ab
---> 1 MARR
+--> 1 MARR 
 <-- 1|MARR|Y|
 --> 2 DATE 1 JUN 1960
 <-- 2|DATE|Y|1 JUN 1960
@@ -212,6 +209,8 @@
 <-- 2|DATE|Y|01 FEB 1990
 --> 1 FAMS f5
 <-- 1|FAMS|Y|f5
+--> 1 FAMS f7
+<-- 1|FAMS|Y|f7
 --> 0 xp INDI
 <-- 0|INDI|Y|xp
 --> 1 NAME Hugh /Jazz/
@@ -226,15 +225,169 @@
 <-- 1|DEAT|Y|
 --> 2 DATE 01 FEB 1940
 <-- 2|DATE|Y|01 FEB 1940
---> 1 FAMS f5
-<-- 1|FAMS|Y|f5
+--> 0 ap INDI
+<-- 0|INDI|Y|ap
+--> 1 NAME Hugh /Jazz/
+<-- 1|NAME|Y|Hugh /Jazz/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1930
+<-- 2|DATE|Y|1 JAN 1930
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 01 FEB 1940
+<-- 2|DATE|Y|01 FEB 1940
+--> 1 FAMC f5
+<-- 1|FAMC|Y|f5
+--> 1 FAMS f6
+<-- 1|FAMS|Y|f6
+--> 0 ad INDI
+<-- 0|INDI|Y|ad
+--> 1 NAME Jane /Jazz/
+<-- 1|NAME|Y|Jane /Jazz/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1930
+<-- 2|DATE|Y|1 JAN 1930
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 01 FEB 1940
+<-- 2|DATE|Y|01 FEB 1940
+--> 1 FAMC f5
+<-- 1|FAMC|Y|f5
+--> 1 FAMS f6
+<-- 1|FAMS|Y|f6
+--> 0 am INDI
+<-- 0|INDI|Y|am
+--> 1 NAME Jake /Jazz/
+<-- 1|NAME|Y|Jake /Jazz/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1930
+<-- 2|DATE|Y|1 JAN 1930
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 01 FEB 1940
+<-- 2|DATE|Y|01 FEB 1940
+--> 1 FAMC f5
+<-- 1|FAMC|Y|f5
+--> 1 FAMS f7
+<-- 1|FAMS|Y|f7
 --> 0 f5 FAM
 <-- 0|FAM|Y|f5
 --> 1 HUSB xp
 <-- 1|HUSB|Y|xp
 --> 1 WIFE rt
 <-- 1|WIFE|Y|rt
---> 1 MARR
+--> 1 CHIL ap
+<-- 1|CHIL|Y|ap
+--> 1 CHIL ad
+<-- 1|CHIL|Y|ad
+--> 1 CHIL am
+<-- 1|CHIL|Y|am
+--> 1 MARR 
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 1960
+<-- 2|DATE|Y|1 JUN 1960
+--> 1 DIV
+<-- 1|DIV|Y|
+--> 2 DATE 1 JUN 2030
+<-- 2|DATE|Y|1 JUN 2030
+--> 0 f6 FAM
+<-- 0|FAM|Y|f6
+--> 1 HUSB ap
+<-- 1|HUSB|Y|ap
+--> 1 WIFE ad
+<-- 1|WIFE|Y|ad
+--> 1 MARR 
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 1960
+<-- 2|DATE|Y|1 JUN 1960
+--> 1 DIV
+<-- 1|DIV|Y|
+--> 2 DATE 1 JUN 2030
+<-- 2|DATE|Y|1 JUN 2030
+--> 0 f7 FAM
+<-- 0|FAM|Y|f7
+--> 1 HUSB am
+<-- 1|HUSB|Y|am
+--> 1 WIFE rt
+<-- 1|WIFE|Y|rt
+--> 1 MARR 
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 1960
+<-- 2|DATE|Y|1 JUN 1960
+--> 1 DIV
+<-- 1|DIV|Y|
+--> 2 DATE 1 JUN 2030
+<-- 2|DATE|Y|1 JUN 2030
+--> 0 js INDI
+<-- 0|INDI|Y|js
+--> 1 NAME Jon /Snow/
+<-- 1|NAME|Y|Jon /Snow/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 28 MAR 2019
+<-- 2|DATE|Y|28 MAR 2019
+--> 0 tl INDI
+<-- 0|INDI|Y|tl
+--> 1 NAME Tyrion /Lannister/
+<-- 1|NAME|Y|Tyrion /Lannister/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 27 MAR 2018
+<-- 2|DATE|Y|27 MAR 2018
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 28 MAR 2019
+<-- 2|DATE|Y|28 MAR 2019
+--> 0 f8 FAM
+<-- 0|FAM|Y|f8
+--> 1 HUSB ap
+<-- 1|HUSB|Y|ap
+--> 1 WIFE ad
+<-- 1|WIFE|Y|ad
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 CHIL tj
+<-- 1|CHIL|Y|tj
+--> 1 MARR 
 <-- 1|MARR|Y|
 --> 2 DATE 1 JUN 1960
 <-- 2|DATE|Y|1 JUN 1960
@@ -247,25 +400,33 @@
 Individuals:
 IndivID: aa Name: Aaron /Pineapple/
 IndivID: ab Name: Jane /Doe/
+IndivID: ad Name: Jane /Jazz/
+IndivID: am Name: Jake /Jazz/
+IndivID: ap Name: Hugh /Jazz/
 IndivID: ce Name: Jaimie /Connors/
 IndivID: de Name: John /Doe/
 IndivID: it Name: Irene /Tantuico/
 IndivID: jc Name: Jimmy /Connors/
+IndivID: js Name: Jon /Snow/
 IndivID: jt Name: Jordan /Tantuico/
 IndivID: og Name: Old /Guy/
 IndivID: rt Name: Ben /Dover/
 IndivID: st Name: Sam /Tantuico/
 IndivID: tj Name: Tantuico /Jordan/
+IndivID: tl Name: Tyrion /Lannister/
 IndivID: xp Name: Hugh /Jazz/
 
 Families:
 FamilyID: f2 Husband: Jimmy /Connors/ Wife: Jaimie /Connors/
 FamilyID: f4 Husband: John /Doe/ Wife: Jane /Doe/
 FamilyID: f5 Husband: Hugh /Jazz/ Wife: Ben /Dover/
+FamilyID: f6 Husband: Hugh /Jazz/ Wife: Jane /Jazz/
+FamilyID: f7 Husband: Jake /Jazz/ Wife: Ben /Dover/
+FamilyID: f8 Husband: Hugh /Jazz/ Wife: Jane /Jazz/
 FamilyID: fj Husband: Sam /Tantuico/ Wife: Irene /Tantuico/
 
-Error US02: Birth date of Ben /Dover/ (rt) occurs after his marriage date.
 Error US02: Birth date of Jane /Doe/ (ab) occurs after his marriage date.
+Error US02: Birth date of Ben /Dover/ (rt) occurs after his marriage date.
 
 Error US03: Birth date of Jordan /Tantuico/ (jt) occurs after his death date.
 
@@ -273,11 +434,18 @@ Error US04: Marriage Occurs After Divorce in Family f4
 
 Error US05: Death occured in family f4 between users before marriage
 Error US05: Death occured in family f5 between users before marriage
+Error US05: Death occured in family f6 between users before marriage
+Error US05: Death occured in family f7 between users before marriage
+Error US05: Death occured in family f8 between users before marriage
 
 Error US06: Divorce occured in family f5 on 1 JUN 2030 after death of both partners
+Error US06: Divorce occured in family f6 on 1 JUN 2030 after death of both partners
+Error US06: Divorce occured in family f7 on 1 JUN 2030 after death of both partners
+Error US06: Divorce occured in family f8 on 1 JUN 2030 after death of both partners
 
 Error US07: Individual Old /Guy/ (og) is older than 150.
 
+Error US15: Family f8 has more than 15 siblings.
 
 Anomaly US16: Family f2 contains males with different last names:
 HUSBAND: Jimmy /Connors/ (jc)
@@ -285,18 +453,46 @@ CHILD: Aaron /Pineapple/ (aa)
 Anomaly US16: Family fj contains males with different last names:
 HUSBAND: Sam /Tantuico/ (st)
 CHILD: Tantuico /Jordan/ (tj)
+Anomaly US16: Family f8 contains males with different last names:
+HUSBAND: Hugh /Jazz/ (ap)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
+CHILD: Tantuico /Jordan/ (tj)
 
+Error: US17: Child am in family f5 is married to a parent
+Error: US18: Child ap and sibling ad are married
+Error: US18: Child ad and sibling ap are married
 Error US21: Gender role of husband John /Doe/ (de) of family f4 is female, instead of male.
 Error US21: Gender role of husband Hugh /Jazz/ (xp) of family f5 is female, instead of male.
 List of Deceased (US29):
 Jimmy /Connors/ (jc)
 Jaimie /Connors/ (ce)
-Ben /Dover/ (rt)
-Hugh /Jazz/ (xp)
-Jordan /Tantuico/ (jt)
-Sam /Tantuico/ (st)
 Jane /Doe/ (ab)
 John /Doe/ (de)
+Jordan /Tantuico/ (jt)
+Irene /Tantuico/ (it)
+Sam /Tantuico/ (st)
+Ben /Dover/ (rt)
+Hugh /Jazz/ (xp)
+Hugh /Jazz/ (ap)
+Jane /Jazz/ (ad)
+Jake /Jazz/ (am)
+Tyrion /Lannister/ (tl)
+
+List of Living Married Individuals (US30):
+Sam /Tantuico/ (st)
 Irene /Tantuico/ (it)
 
 List of Living Single Individuals over 30 (US31):
@@ -304,3 +500,25 @@ Old /Guy/ (og)
 
 US33: Aaron /Pineapple/ (aa) of family f2 is an orphan.
 US33: Tantuico /Jordan/ (tj) of family fj is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US33: Tantuico /Jordan/ (tj) of family f8 is an orphan.
+US35: Jon /Snow/(js) was born in the past 30 days
+US36: Irene /Tantuico/(it) has died in the past 30 days
+US36: Sam /Tantuico/(st) has died in the past 30 days
+US36: Tyrion /Lannister/(tl) has died in the past 30 days
+
+List of Couples Whos' Anniversaries Are Within 30 Days (US39):
+Sam /Tantuico/(st) and Irene /Tantuico/(it) have an anniversary coming up on 20 FEB 2019!

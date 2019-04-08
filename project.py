@@ -25,7 +25,9 @@ from david.us31listLivingSingle import listLivingSingle
 from jordan.us33listOrphans import isOrphan
 from jordan.us35recentBirths import isRecentBirth
 from jordan.us36recentDeaths import isRecentDeath
+from david.us38listUpcomingBirthdays import listUpcomingBirthdays
 from david.us39listUpcomingAnniversaries import listUpcomingAnniversaries
+from david.us42rejectIllegitimateDates import rejectIllegitimateDates
 
 from datetime import datetime
 
@@ -225,7 +227,7 @@ for familyId in families:
 	fam = families[familyId]
 	trueOrFalse = fewerThan15Sibs(families[familyId])
 	if (not trueOrFalse):
-		print("Error US15: Family " + familyId + "has more than 15 siblings.")
+		print("Error US15: Family " + familyId + " has more than 15 siblings.")
 
 print()
 # User story 16
@@ -316,8 +318,27 @@ for id in individuals:
 	if isRecentDeath(person):
 		print("US36: " + person['NAME'] + "(" + id + ") has died in the past 30 days")
 print()
-# User story 39
+
+# User story 38: list upcoming birthdays
+print("List of Individuals Whose Birthdays Are Within 30 Days From Now (US38):")
+for id in listUpcomingBirthdays(individuals):
+	print(individuals[id]['NAME'] + " has a birthday coming up soon: " + individuals[id]['BIRT'])
+print()
+
+# User story 39: list upcoming anniversaries
 print("List of Couples Whos' Anniversaries Are Within 30 Days (US39):")
 for fid in listUpcomingAnniversaries(families):
 	print(individuals[families[fid]['HUSB']]['NAME'] + "(" + families[fid]['HUSB'] + ") and " + individuals[families[fid]['WIFE']]['NAME'] + "(" + families[fid]['WIFE'] + ") have an anniversary coming up on " + families[fid]['MARR'] + "!")
 print()
+
+# User story 42: reject illegitimate dates
+for id in individuals:
+	listOfDates = rejectIllegitimateDates(individuals[id])
+	if len(listOfDates) != 0:
+		for elem in listOfDates:
+			print("Error US42: " + individuals[id]['NAME'] + " has an invalid date for " + elem + " : " + individuals[id][elem])
+for fid in families:
+	listOfDates = rejectIllegitimateDates(families[fid])
+	if len(listOfDates) != 0:
+		for elem in listOfDates:
+			print("Error US42: Family " + fid + " has an invalid date for " + elem + " : " + families[fid][elem])

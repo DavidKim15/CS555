@@ -21,7 +21,7 @@ families = {'f1': {'HUSB': 'jc',
 
 def fewerThan15Sibs(family):
     if 'CHIL' in family:
-        if len(family['CHIL']) > 15:
+        if len(family['CHIL']) >= 15:
             return False
     return True
             
