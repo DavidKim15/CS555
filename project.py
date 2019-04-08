@@ -23,11 +23,12 @@ from david.us29listDeceased import listDeceased
 from david.us30listLivingMarried import listLivingMarried
 from david.us31listLivingSingle import listLivingSingle
 from jordan.us33listOrphans import isOrphan
+from david.us34listLargeAgeDifferences import listLargeAgeDifferences
 from jordan.us35recentBirths import isRecentBirth
 from jordan.us36recentDeaths import isRecentDeath
 from david.us38listUpcomingBirthdays import listUpcomingBirthdays
 from david.us39listUpcomingAnniversaries import listUpcomingAnniversaries
-from david.us42rejectIllegitimateDates import rejectIllegitimateDates
+# from david.us42rejectIllegitimateDates import rejectIllegitimateDates
 
 from datetime import datetime
 
@@ -305,7 +306,13 @@ for familyId in families:
 		# Runs the user story
 		if isOrphan(child,mother,father):
 			print("US33:", child['NAME'], "(" + childId + ")", "of family",familyId,"is an orphan.")
+print()
 
+# User story 34: list large age differences
+for fid in listLargeAgeDifferences(families,individuals):
+	print(individuals[families[fid]['HUSB']]['NAME'] + "(" + families[fid]['HUSB'] + ") and " + individuals[families[fid]['WIFE']]['NAME'] + "(" + families[fid]['WIFE'] + ") were married with an age difference larger than two times the other!")
+
+print()
 # User story 35: list recent births
 for id in individuals:
 	person = individuals[id]
@@ -332,13 +339,13 @@ for fid in listUpcomingAnniversaries(families):
 print()
 
 # User story 42: reject illegitimate dates
-for id in individuals:
-	listOfDates = rejectIllegitimateDates(individuals[id])
-	if len(listOfDates) != 0:
-		for elem in listOfDates:
-			print("Error US42: " + individuals[id]['NAME'] + " has an invalid date for " + elem + " : " + individuals[id][elem])
-for fid in families:
-	listOfDates = rejectIllegitimateDates(families[fid])
-	if len(listOfDates) != 0:
-		for elem in listOfDates:
-			print("Error US42: Family " + fid + " has an invalid date for " + elem + " : " + families[fid][elem])
+# for id in individuals:
+# 	listOfDates = rejectIllegitimateDates(individuals[id])
+# 	if len(listOfDates) != 0:
+# 		for elem in listOfDates:
+# 			print("Error US42: " + individuals[id]['NAME'] + " has an invalid date for " + elem + " : " + individuals[id][elem])
+# for fid in families:
+# 	listOfDates = rejectIllegitimateDates(families[fid])
+# 	if len(listOfDates) != 0:
+# 		for elem in listOfDates:
+# 			print("Error US42: Family " + fid + " has an invalid date for " + elem + " : " + families[fid][elem])
