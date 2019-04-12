@@ -109,6 +109,9 @@ for id in sorted(families.keys()):
 	wifeyname = individuals[families[id]['WIFE']]['NAME']
 	print("FamilyID: " + id + " Husband: " + hubbyname + " Wife: " + wifeyname)
 
+print(families)
+print(individuals)
+
 print()
 
 ################################################################################

@@ -14,6 +14,8 @@ from phil.us06divorceBeforeDeath import divorceBeforeDeath
 from phil.us02birthBeforeMarriage import birthBeforeMarriage
 from phil.us17noMarriagesToChildren import noMarriagesToChildren
 from phil.us18siblingsShouldNotMarry import siblingsShouldNotMarry
+from phil.us11noBigamy import noBigamy
+from phil.us23uniqueNamesAndBD import uniqueNamesAndBD
 from jordan.us07lessThan150 import lessThan150
 from jordan.us10marriageAfter14 import marriageAfter14
 from david.us15fewerThan15Sibs import fewerThan15Sibs
@@ -222,7 +224,9 @@ for id in families:
 	if not marriageAfter14(wifeBirthDate,marriageDate):
 		print("Error US10: Wife " + wife['NAME'] + " (" + wifeId + ") of family " + id + " was married before she turned 14")
 
-
+#US11: No Bigamy
+noBigamy(individuals,families)
+print()
 # User story 15
 for familyId in families:
 	fam = families[familyId]
@@ -267,7 +271,9 @@ for id in families:
 	if not roles[1]:
 		print("Error US21: Gender role of wife " +individuals[wifeId]['NAME'] +  " (" + wifeId + ") of family " + id + " is male, instead of female.")
 
-
+#User Story 23: Unique Names and BD
+uniqueNamesAndBD(individuals)
+print()
 # User story 29
 print("List of Deceased (US29):")
 for id in listDeceased(individuals):
